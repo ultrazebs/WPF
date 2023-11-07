@@ -68,7 +68,7 @@
         <CheckBox Grid.Row="1" Grid.Column="1">
             This is a CheckBox
         </CheckBox>
-            
+
     </Grid>
     
 </Window>

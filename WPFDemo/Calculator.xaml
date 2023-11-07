@@ -1,0 +1,48 @@
+﻿<Window x:Class="WPFDemo.Calculator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFDemo"
+        mc:Ignorable="d"
+        Title="Calculator" Height="450" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" FontSize="90" Background="Black" Foreground="white" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom">356</Label>
+        <Button Grid.Row="1" Grid.Column="0" TextBlock.TextAlignment="Right"> C </Button>
+        <Button Grid.Row="1" Grid.Column="1" TextBlock.TextAlignment="Right"> +/- </Button>
+        <Button Grid.Row="1" Grid.Column="2" TextBlock.TextAlignment="Right"> % </Button>
+        <Button Grid.Row="1" Grid.Column="3" TextBlock.TextAlignment="Right" Style="{StaticResource operators}"> ÷ </Button>
+        <Button Grid.Row="2" Grid.Column="0" TextBlock.TextAlignment="Right" > 7 </Button>
+        <Button Grid.Row="2" Grid.Column="1" TextBlock.TextAlignment="Right" > 8 </Button>
+        <Button Grid.Row="2" Grid.Column="2" TextBlock.TextAlignment="Right" > 9 </Button>
+        <Button Grid.Row="2" Grid.Column="3" TextBlock.TextAlignment="Right" Style="{StaticResource operators}"> x </Button>
+        <Button Grid.Row="3" Grid.Column="0" TextBlock.TextAlignment="Right" > 4 </Button>
+        <Button Grid.Row="3" Grid.Column="1" TextBlock.TextAlignment="Right"> 5 </Button>
+        <Button Grid.Row="3" Grid.Column="2" TextBlock.TextAlignment="Right"> 6 </Button>
+        <Button Grid.Row="3" Grid.Column="3" TextBlock.TextAlignment="Right" Style="{StaticResource operators}"> - </Button>
+        <Button Grid.Row="4" Grid.Column="0" TextBlock.TextAlignment="Right"> 1 </Button>
+        <Button Grid.Row="4" Grid.Column="1" TextBlock.TextAlignment="Right"> 2 </Button>
+        <Button Grid.Row="4" Grid.Column="2" TextBlock.TextAlignment="Right"> 3 </Button>
+        <Button Grid.Row="4" Grid.Column="3" TextBlock.TextAlignment="Right" Style="{StaticResource operators}"> + </Button>
+        <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" TextBlock.TextAlignment="Right" Click="Button_Click">0</Button>
+        <Button Grid.Row="5" Grid.Column="2" TextBlock.TextAlignment="Right"> . </Button>
+        <Button Grid.Row="5" Grid.Column="3" TextBlock.TextAlignment="Right" Style="{StaticResource operators}"> = </Button>
+        
+    </Grid>
+</Window>

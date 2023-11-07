@@ -11,7 +11,9 @@ namespace WPFDemo
     /// <summary>
     /// Logica di interazione per App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class Calculator : Window
     {
+
+
     }
 }
