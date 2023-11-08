@@ -11,25 +11,27 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WPFDemo.viewModels;
 
-namespace WPFDemo.viewModels
+namespace WPFDemo
 {
     /// <summary>
-    /// Logica di interazione per Login.xaml
+    /// Logica di interazione per randomStudent.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class randomStudent : Window
     {
-        private LoginViewModel vm;
-        public Login()
+        private randomStudentViewModel vm;
+
+        public randomStudent()
         {
             InitializeComponent();
-            vm = new LoginViewModel();
+            vm = new randomStudentViewModel();
             DataContext = vm;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            vm.Login();
+            vm.generateRandom();
         }
     }
 }

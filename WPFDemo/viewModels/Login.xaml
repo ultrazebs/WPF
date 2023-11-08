@@ -24,12 +24,19 @@
             <RowDefinition Height="45"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" FontSize="90" Background="IndianRed" Foreground="white"></Label>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" FontSize="90" Background="orange" Foreground="white"></Label>
         <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource instructionLabels}" Content="Username:"></Label>
-        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource text}"></TextBox>
+        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource text}" Text="{Binding username, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         <Label Grid.Row="4" Grid.Column="1" Style="{StaticResource instructionLabels}" Content="Password:"></Label>
-        <TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource text}"></TextBox>
-        <Button Grid.Row="7" Grid.Column="1" Style="{StaticResource operators}">Login</Button>
-        <Label Grid.Row="8" Grid.Column="1" Style="{StaticResource loginResult}" Content="Risultato Login:"></Label>
+        <TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource text}" Text="{Binding password, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <Button Grid.Row="7" Grid.Column="1" Style="{StaticResource operators}" Click="Button_Click" IsEnabled="{Binding canLogin}">
+                <Grid>
+                    <Image Source="..\Images\fotoCisti.jpg" Stretch="Fill" />
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Login" />
+                </Grid>
+        </Button>
+        <Label Grid.Row="8" Grid.Column="1" Style="{StaticResource loginResult}" Content="{Binding result}"></Label>
+        <Image Source="../Images/bassogog.png" Grid.Row="2" Grid.RowSpan="6"></Image>
+        <Image Source="../Images/DJMAD.png" Grid.Row="2" Grid.Column="2" Grid.RowSpan="6"></Image>
     </Grid>
 </Window>
