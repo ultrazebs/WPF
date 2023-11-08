@@ -22,8 +22,8 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        
-        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" FontSize="90" Background="Black" Foreground="white" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom">356</Label>
+
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" FontSize="90" Background="Black" Foreground="white" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Content="{Binding result}"></Label>
         <Button Grid.Row="1" Grid.Column="0" TextBlock.TextAlignment="Right"> C </Button>
         <Button Grid.Row="1" Grid.Column="1" TextBlock.TextAlignment="Right"> +/- </Button>
         <Button Grid.Row="1" Grid.Column="2" TextBlock.TextAlignment="Right"> % </Button>

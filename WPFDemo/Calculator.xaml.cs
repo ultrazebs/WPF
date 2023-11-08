@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WPFDemo.viewModels;
 
 namespace WPFDemo
 {
@@ -20,19 +21,19 @@ namespace WPFDemo
     /// </summary>
     public partial class Calculator : Window, INotifyPropertyChanged
     {
-        private string result { get; set; } = "0";
-
+        CalcolatriceVIewModel VM;
         public Calculator()
         {
             InitializeComponent();
-            DataContext = this;
+            VM = new CalcolatriceVIewModel();
+            DataContext = VM;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            result += "5";
+            VM.tasto("5");
         }
     }
 }
