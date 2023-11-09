@@ -89,7 +89,6 @@ namespace WPFDemo.Controllers
 
 
 
-
             using(SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
