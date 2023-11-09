@@ -94,7 +94,7 @@ namespace WPFDemo.Controllers
             {
                 connection.Open();
 
-                var command = new SqlCommand("select Students.*, Corsi.NOME as NomeCorso from Students join Corsi on Corsi.Id = Students.IdCorso order by Students.Id", connection);
+                var command = new SqlCommand("select Students.*, Corsi.NOME as NomeCorso from Students join Corsi on Corsi.Id = Students.IdCorso where Students.Cognome like 'N%' order by Students.Id", connection);
 
                 var reader = command.ExecuteReader();
 
