@@ -25,12 +25,12 @@ namespace WPFDemo.Controllers
                 {
                     connection.Open();
                     // comando per recuperare i dati dalla tabella Users
-                    SqlCommand command = new SqlCommand("select TOP 1* from Students order by NEWID()", connection);
+                    var command = new SqlCommand("select TOP 1* from Students order by NEWID()", connection);
 
 
 
                     // eseguo la query con l'execute più standard, per uqalsiasi query di select
-                    SqlDataReader reader = command.ExecuteReader();
+                    var reader = command.ExecuteReader();
 
                     if (reader.Read()) // se la query ha restituito almeno una riga (quindi l'utente c'è)
                     {
