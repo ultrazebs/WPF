@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="randomStudent.xaml.cs">
@@ -140,5 +141,6 @@
   <ItemGroup>
     <Resource Include="Images\DJMAD.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
