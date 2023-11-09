@@ -58,12 +58,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\CorsiController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Models\Corso.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="randomStudent.xaml.cs">
       <DependentUpon>randomStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StudentManagerView.xaml.cs">
+      <DependentUpon>StudentManagerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="StudentView.xaml.cs">
       <DependentUpon>StudentView.xaml</DependentUpon>
@@ -75,6 +79,7 @@
     </Compile>
     <Compile Include="viewModels\LoginViewModel.cs" />
     <Compile Include="viewModels\randomStudentViewModel.cs" />
+    <Compile Include="viewModels\StudentManagerViewModel.cs" />
     <Compile Include="viewModels\StudentViewModel.cs" />
     <Page Include="Calculator.xaml">
       <SubType>Designer</SubType>
@@ -96,6 +101,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="randomStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StudentManagerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -150,6 +159,8 @@
   <ItemGroup>
     <Resource Include="Images\DJMAD.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\Classroom.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

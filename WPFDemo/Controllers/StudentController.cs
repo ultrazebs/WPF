@@ -81,8 +81,6 @@ namespace WPFDemo.Controllers
 
 
 
-
-
         public static List<Student> getStudents(string filter)
         {
             List<Student> results = new List<Student>();
@@ -93,7 +91,9 @@ namespace WPFDemo.Controllers
             {
                 connection.Open();
 
-                var command = new SqlCommand("select Students.*, Corsi.NOME as NomeCorso from Students join Corsi on Corsi.Id = Students.IdCorso where Students.Cognome like 'N%' order by Students.Id", connection);
+                var command = new SqlCommand($"select Students.*, Corsi.NOME as NomeCorso from Students join Corsi on Corsi.Id = Students.IdCorso where Students.Cognome like @Cognome order by Students.Id", connection);
+
+                command.Parameters.AddWithValue("Cognome", '%' + filter + '%');
 
                 var reader = command.ExecuteReader();
 
@@ -125,6 +125,79 @@ namespace WPFDemo.Controllers
             
 
 
+        }
+
+
+        public static void deleteStudent(Student s)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var command = new SqlCommand("delete from Students where Id like @Id", connection);
+
+                command.Parameters.AddWithValue("@Id", s.Id);
+
+                command.ExecuteReader();
+
+                
+            }
+        }
+
+        public static void updateStudent(Student s)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var command = new SqlCommand("delete from Students where Id like @Id", connection);
+
+                command.Parameters.AddWithValue("@Id", s.Id);
+
+                command.ExecuteReader();
+
+
+            }
+        }
+
+        internal static void add(Student student)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var command = new SqlCommand($"insert into Students (Cognome, Nome, DataNascita, IdCorso) values(@Cognome, @Nome, @DataNascita, @IdCorso)", connection);
+
+                command.Parameters.AddWithValue("@Cognome", student.Cognome);
+                command.Parameters.AddWithValue("@Nome", student.Nome);
+                command.Parameters.AddWithValue("@DataNascita", student.DataNascita);
+                command.Parameters.AddWithValue("@IdCorso", student.IdCorso);
+
+                command.ExecuteReader();
+
+
+            }
+        }
+
+
+        internal static void update(Student student)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var command = new SqlCommand($"update Students set Cognome = @Cognome, set Nome = @Nome, set DataNascita = @DataNascita, set IdCorso = @IdCorso where Id = @Id", connection);
+
+                command.Parameters.AddWithValue("@Cognome", student.Cognome);
+                command.Parameters.AddWithValue("@Nome", student.Nome);
+                command.Parameters.AddWithValue("@DataNascita", student.DataNascita);
+                command.Parameters.AddWithValue("@IdCorso", student.IdCorso);
+                command.Parameters.AddWithValue("@IdCorso", student.Id);
+
+                command.ExecuteReader();
+
+
+            }
         }
     }
 }

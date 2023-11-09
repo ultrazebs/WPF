@@ -17,5 +17,15 @@ namespace WPFDemo.Models
         public Corso Corso { get; set; }    
 
         public string cognomeNome;
+
+        public Student()
+        {
+            
+        }
+
+        public Student(DateTime DataNascita)
+        {
+            this.DataNascita = DataNascita;
+        }
     }
 }

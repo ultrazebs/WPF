@@ -6,6 +6,11 @@
         xmlns:local="clr-namespace:WPFDemo"
         mc:Ignorable="d"
         Title="StudentView" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="Images/Classroom.jpg" />
+    </Window.Background>
+
+ 
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -20,20 +25,20 @@
 
         <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontSize="48" FontWeight="Bold" Foreground="Orange" Content="Student Manager" Margin="-5 0 0 0"/>
         <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
-            <TextBox Grid.Column="0" Grid.Row="1" Width="290" Height="30" Margin=" 0 0 0 0" Text="{Binding filter}"/>
-            <Button Name="FilterButton" Style="{StaticResource ResourceKey=operators}" Content="Filter" Margin="10 5 0 5" Width="80" Click="Button_Click"/>
+            <TextBox Grid.Column="0" Grid.Row="1" Width="290" Height="30" Margin=" 0 0 0 0" Text="{Binding filter, UpdateSourceTrigger=PropertyChanged}"/>
+            <!--<Button Name="FilterButton" Style="{StaticResource ResourceKey=operators}" Content="Filter" Margin="10 5 0 5" Width="80" Click="Button_Click"/>-->
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="right">
-            <Button Style="{StaticResource ResourceKey=operators}" Background="red" Content="Delete" Margin="0 5 0 5" Width="80"/>
-            <Button Style="{StaticResource ResourceKey=operators}" Background="green" Content="New" Margin="10 5 0 5" Width="80"/>
+            <Button Style="{StaticResource ResourceKey=operators}" Background="red" Content="Delete" Margin="0 5 0 5" Width="80" Click="Delete_Click" IsEnabled="{Binding delEnabled}"/>
+            <Button Style="{StaticResource ResourceKey=operators}" Background="green" Content="New" Margin="10 5 0 5" Width="80" Click="Button_Click_1"/>
         </StackPanel>
-        <DataGrid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="0 5 0 5" ItemsSource="{Binding Students}" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False">
+        <DataGrid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="0 5 0 5" ItemsSource="{Binding Students}" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" MouseDoubleClick="DataGrid_MouseDoubleClick" SelectedItem="{Binding selectedStudent}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Cognome" Binding="{Binding Cognome}"/>
-                <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
-                <DataGridTextColumn Header="Data di Nascita" Binding="{Binding DataNascita, StringFormat= 'dd-MM-yyyy'}"/>
-                <DataGridTextColumn Header="Corso" Binding="{Binding Corso.Nome}"/>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
+                <DataGridTextColumn Header="Cognome" Binding="{Binding Cognome}" Width="*"/>
+                <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" Width="*"/>
+                <DataGridTextColumn Header="Data di Nascita" Binding="{Binding DataNascita, StringFormat= 'dd-MM-yyyy'}" Width="*"/>
+                <DataGridTextColumn Header="Corso" Binding="{Binding Corso.Nome}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -33,5 +33,22 @@ namespace WPFDemo
         {
             vm.Filter();
         }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            
+
+            vm.deleteStudent();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            vm.newStudent();
+        }
+
+        private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            vm.updateStudent();
+        }
     }
 }

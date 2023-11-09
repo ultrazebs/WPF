@@ -10,14 +10,29 @@ namespace WPFDemo.viewModels
 {
     public class StudentViewModel : BaseViewModel
     {
+		private Student _selectedStudent;
+
+		public Student selectedStudent
+        {
+			get { return _selectedStudent; }
+			set { _selectedStudent = value; onPropChanged("selectedStudent"); onPropChanged("delEnabled"); }
+        }
+
+
 		private string _filter;
 
 		public string filter
 		{
 			get { return _filter; }
-			set { _filter = value; onPropChanged("filter"); }
+			set { _filter = value; onPropChanged("filter"); Filter(); }
 		}
 
+		private bool _delEnabled;
+
+		public bool delEnabled
+        {
+			get { return !(selectedStudent==null); }
+		}
 
 
 		// creo una lista di oggetti di classe Student
@@ -39,5 +54,39 @@ namespace WPFDemo.viewModels
 			Students = StudentController.getStudents(filter);
 		}
 
-	}
+		public void deleteStudent()
+		{
+            if (selectedStudent != null)
+            {
+				StudentController.deleteStudent(selectedStudent);
+				
+
+                // resetting variables
+                filter = "";
+				selectedStudent = null;
+
+				// resetting view
+				Filter();
+            }
+			
+        }
+
+		public void newStudent()
+		{
+			StudentManagerView view = new StudentManagerView("Create Student");
+			view.ShowDialog();
+			Filter();
+		}
+
+        public void updateStudent()
+        {
+			if (selectedStudent != null)
+			{
+				StudentManagerView view = new StudentManagerView(selectedStudent, "Update Student");
+				view.ShowDialog();
+				Filter();
+			}
+            
+        }
+    }
 }
