@@ -12,6 +12,10 @@ namespace WPFDemo.Models
         public string Nome { get; set; }    
         public string Cognome { get; set; }    
         public DateTime DataNascita { get; set; }    
-        public int IdCorso { get; set; }    
+        public int IdCorso { get; set; }
+
+        public Corso Corso { get; set; }    
+
+        public string cognomeNome;
     }
 }

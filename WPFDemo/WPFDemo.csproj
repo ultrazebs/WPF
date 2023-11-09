@@ -59,10 +59,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Models\Corso.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="randomStudent.xaml.cs">
       <DependentUpon>randomStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StudentView.xaml.cs">
+      <DependentUpon>StudentView.xaml</DependentUpon>
     </Compile>
     <Compile Include="viewModels\BaseViewModel.cs" />
     <Compile Include="viewModels\CalcolatriceVIewModel.cs" />
@@ -71,6 +75,7 @@
     </Compile>
     <Compile Include="viewModels\LoginViewModel.cs" />
     <Compile Include="viewModels\randomStudentViewModel.cs" />
+    <Compile Include="viewModels\StudentViewModel.cs" />
     <Page Include="Calculator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -91,6 +96,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="randomStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StudentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

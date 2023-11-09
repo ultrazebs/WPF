@@ -24,7 +24,7 @@
         <Label Grid.Row="1" Grid.Column="1" Content="{Binding Studente.Nome}"/>
         <Label Grid.Row="1" Grid.Column="2" Content="{Binding Studente.Cognome}"/>
         <Label Grid.Row="2" Grid.Column="1" Content="{Binding Studente.DataNascita}"/>
-        <Label Grid.Row="2" Grid.Column="2" Content="{Binding Studente.IdCorso}"/>
+        <Label Grid.Row="2" Grid.Column="2" Content="{Binding Studente.Corso.Nome}"/>
         <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource operators}" Click="Button_Click_1">Select Random Student</Button>
         
     </Grid>

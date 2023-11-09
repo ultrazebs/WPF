@@ -11,6 +11,10 @@ namespace WPFDemo.Controllers
     public static class StudentController
     {
         private static string connectionString = "Data Source=(local);Initial Catalog=Studenti;Integrated Security=True;";
+
+
+
+
         public static Student generateRandom()
         {
 
@@ -25,7 +29,7 @@ namespace WPFDemo.Controllers
                 {
                     connection.Open();
                     // comando per recuperare i dati dalla tabella Users
-                    var command = new SqlCommand("select TOP 1* from Students order by NEWID()", connection);
+                    var command = new SqlCommand("select TOP 1 Students.*, Corsi.NOME as NomeCorso from Students join Corsi on Corsi.Id = Students.IdCorso order by NEWID()", connection);
 
 
 
@@ -43,8 +47,12 @@ namespace WPFDemo.Controllers
                             Nome = (string)reader["Nome"],
                             Cognome = (string)reader["Cognome"],
                             DataNascita = (DateTime)reader["DataNascita"],
-                            IdCorso = (int)reader["IdCorso"]
-
+                            IdCorso = (int)reader["IdCorso"],
+                            Corso = new Corso
+                            {
+                                Id = (int)reader["IdCorso"],
+                                Nome = (string)reader["NomeCorso"]
+                            }
                         };
                         // Corso = s.Corso;
 
@@ -68,6 +76,55 @@ namespace WPFDemo.Controllers
             }
 
             return null;
+
+        }
+
+
+
+
+
+        public static List<Student> getStudents(string filter)
+        {
+            List<Student> results = new List<Student>();
+
+
+
+
+            using(SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                var command = new SqlCommand("select Students.*, Corsi.NOME as NomeCorso from Students join Corsi on Corsi.Id = Students.IdCorso order by Students.Id", connection);
+
+                var reader = command.ExecuteReader();
+
+                while(reader.Read())
+                {
+                    results.Add(new Student
+                    {
+                        Id = (int)reader["ID"],
+                        Nome = (string)reader["Nome"],
+                        Cognome = (string)reader["Cognome"],
+                        DataNascita = (DateTime)reader["DataNascita"],
+                        IdCorso = (int)reader["IdCorso"],
+                        Corso = new Corso
+                        {
+                            Id = (int)reader["IdCorso"],
+                            Nome = (string)reader["NomeCorso"]
+                        }
+                    });
+                    
+                    
+                    
+                    
+                    
+                }
+                connection.Close();
+                return results;
+            }
+            
+            
+
 
         }
     }
