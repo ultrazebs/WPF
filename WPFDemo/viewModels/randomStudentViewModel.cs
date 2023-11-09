@@ -15,6 +15,7 @@ namespace WPFDemo.viewModels
         private Student _studente;
         public Student Studente
         {
+
             get { return _studente; }
             set { _studente = value; onPropChanged("Studente"); }
         }
