@@ -19,7 +19,7 @@ namespace WPFDemo
     /// <summary>
     /// Logica di interazione per Calculator.xaml
     /// </summary>
-    public partial class Calculator : Window, INotifyPropertyChanged
+    public partial class Calculator : Page
     {
         CalcolatriceVIewModel VM;
         public Calculator()

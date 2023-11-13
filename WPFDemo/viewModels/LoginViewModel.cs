@@ -55,7 +55,7 @@ namespace WPFDemo.viewModels
 
 
 
-        public void Login() {
+        public bool Login() {
 
 
 
@@ -91,18 +91,19 @@ namespace WPFDemo.viewModels
 
                         // setto il valore della label per dare il benvenuto all'utente
                         result = $"Benvenuto {u.Fullname}";
-
+                        return true;
                     }
                     else
                     {
                         //Login errato
                         result = "Login Errato";
-
+                        return false;
                     }
                 }
                 catch
                 {
                     //connection.Close(); --> è commentato siccome è implicito nello using()
+                    return false;
                 }
                     
             }

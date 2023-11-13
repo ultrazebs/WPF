@@ -6,69 +6,19 @@
         xmlns:local="clr-namespace:WPFDemo"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <!--
-    <StackPanel Orientation="Vertical">
-        <Label>
-            Hello World!
-        </Label>
-        <Button>
-            Click Me!
-        </Button> 
-
-        <Rectangle Fill="Beige" Height="50">
-            
-        </Rectangle>
-    </StackPanel>
-    
     <DockPanel>
-        <Rectangle Fill="Beige" DockPanel.Dock="Left" Width="50
-                   ">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="LogOut" Click="Logout_Click" IsEnabled="{Binding IsLogged}"/>
+            </MenuItem>
+            <MenuItem Header="Functionalities" IsEnabled="{Binding IsLogged}">
+                <MenuItem Header="Calculator" Click="Calculator_Click"/>
+                <MenuItem Header="Random Student" Click="RandomStudent_Click"/>
+            </MenuItem>
+        </Menu>
+        <Frame x:Name="NavigationService" Source="viewModels/Login.xaml" NavigationUIVisibility="Hidden"/>
 
-        </Rectangle>
-        <Rectangle Fill="Azure"  DockPanel.Dock="Top" Height="50">
-
-        </Rectangle>
-        <Rectangle Fill="Brown">
-
-        </Rectangle>
-        
     </DockPanel>
-    -->
-
-    <Grid Margin="10 10 10 10">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100">
-                
-            </ColumnDefinition>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition/>
-
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-
-        <Rectangle Fill="Beige" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
-
-        </Rectangle>
-        <Label>
-            This is a label
-        </Label>
-        <TextBox Grid.Row="0" Grid.Column="1" Text="to all my niggas">
-            
-        </TextBox>
-        <ComboBox Grid.Row="0" Grid.Column="2">
-            
-        </ComboBox>
-        <Button Grid.Row="1" Grid.Column="0" Background="Gold" Foreground="Azure" FontSize="20" FontFamily="calibri" BorderBrush="Brown" BorderThickness="5">
-            To all your niggas
-        </Button>
-        <CheckBox Grid.Row="1" Grid.Column="1">
-            This is a CheckBox
-        </CheckBox>
-
-    </Grid>
     
+
 </Window>

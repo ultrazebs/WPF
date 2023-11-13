@@ -17,7 +17,7 @@ namespace WPFDemo.viewModels
     /// <summary>
     /// Logica di interazione per Login.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class Login : Page
     {
         private LoginViewModel vm;
         public Login()
@@ -29,7 +29,15 @@ namespace WPFDemo.viewModels
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            vm.Login();
+            if (vm.Login())
+            {
+                NavigationService.Navigate(new StudentView());
+            }
+        }
+
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+             vm.password = ((PasswordBox)sender).Password;
         }
     }
 }

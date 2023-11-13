@@ -186,13 +186,13 @@ namespace WPFDemo.Controllers
             {
                 connection.Open();
 
-                var command = new SqlCommand($"update Students set Cognome = @Cognome, set Nome = @Nome, set DataNascita = @DataNascita, set IdCorso = @IdCorso where Id = @Id", connection);
+                var command = new SqlCommand($"update Students set Cognome = @Cognome, Nome = @Nome, DataNascita = @DataNascita, IdCorso = @IdCorso where Id = @Id", connection);
 
                 command.Parameters.AddWithValue("@Cognome", student.Cognome);
                 command.Parameters.AddWithValue("@Nome", student.Nome);
                 command.Parameters.AddWithValue("@DataNascita", student.DataNascita);
                 command.Parameters.AddWithValue("@IdCorso", student.IdCorso);
-                command.Parameters.AddWithValue("@IdCorso", student.Id);
+                command.Parameters.AddWithValue("@Id", student.Id);
 
                 command.ExecuteReader();
 

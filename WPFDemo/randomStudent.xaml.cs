@@ -18,7 +18,7 @@ namespace WPFDemo
     /// <summary>
     /// Logica di interazione per randomStudent.xaml
     /// </summary>
-    public partial class randomStudent : Window
+    public partial class randomStudent : Page
     {
         private randomStudentViewModel vm;
 

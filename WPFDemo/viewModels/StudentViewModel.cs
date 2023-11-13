@@ -74,7 +74,7 @@ namespace WPFDemo.viewModels
 		public void newStudent()
 		{
 			StudentManagerView view = new StudentManagerView("Create Student");
-			view.ShowDialog();
+			
 			Filter();
 		}
 
@@ -83,7 +83,6 @@ namespace WPFDemo.viewModels
 			if (selectedStudent != null)
 			{
 				StudentManagerView view = new StudentManagerView(selectedStudent, "Update Student");
-				view.ShowDialog();
 				Filter();
 			}
             

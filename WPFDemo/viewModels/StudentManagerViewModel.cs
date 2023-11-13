@@ -53,16 +53,18 @@ namespace WPFDemo.viewModels
             _corsi = CorsiController.getAll();
             isNew = false;
         }
+
         public StudentManagerViewModel(string title)
         {
             _student = new Student(DateTime.Today);
             _corsi = CorsiController.getAll();
+            _title = title;
             isNew = false;
         }
 
         public StudentManagerViewModel(Student s, string title)
         {
-            _student = new Student(DateTime.Today);
+            _student = s;
             _corsi = CorsiController.getAll();
             _title = title;
             isNew = false;
@@ -71,6 +73,15 @@ namespace WPFDemo.viewModels
         internal void Confirm()
         {
             StudentController.add(Student);
+        }
+        internal void update()
+        {
+            StudentController.update(Student);
+        }
+
+        internal void Modifica()
+        {
+            throw new NotImplementedException();
         }
     }
 }

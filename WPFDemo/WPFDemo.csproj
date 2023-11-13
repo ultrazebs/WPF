@@ -78,6 +78,7 @@
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="viewModels\LoginViewModel.cs" />
+    <Compile Include="viewModels\MainWindowViewModel.cs" />
     <Compile Include="viewModels\randomStudentViewModel.cs" />
     <Compile Include="viewModels\StudentManagerViewModel.cs" />
     <Compile Include="viewModels\StudentViewModel.cs" />

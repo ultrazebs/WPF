@@ -18,7 +18,7 @@ namespace WPFDemo
     /// <summary>
     /// Logica di interazione per StudentView.xaml
     /// </summary>
-    public partial class StudentView : Window
+    public partial class StudentView : Page
     {
         private StudentViewModel vm;
 
@@ -48,6 +48,7 @@ namespace WPFDemo
 
         private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            NavigationService.Navigate(new StudentManagerView());
             vm.updateStudent();
         }
     }

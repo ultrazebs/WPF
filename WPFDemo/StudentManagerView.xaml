@@ -1,4 +1,4 @@
-﻿<Window x:Class="WPFDemo.StudentManagerView"
+﻿<Page x:Class="WPFDemo.StudentManagerView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="StudentManagerView" Height="450" Width="800">
 
-    <Window.Background>
+    <Page.Background>
         <ImageBrush ImageSource="Images/Classroom.jpg" />
-    </Window.Background>
+    </Page.Background>
 
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
@@ -36,7 +36,7 @@
         <ComboBox  Grid.Column="1" Grid.Row="4" Margin="5" ItemsSource="{Binding Corsi}" DisplayMemberPath="Nome" SelectedValuePath="Id" SelectedValue="{Binding Student.IdCorso}"/>
 
         <Button Grid.Column="0" Grid.Row="6" Width="200" Style="{StaticResource operators}" FontSize="25" FontWeight="Bold" Click="Annulla_Click">Annulla</Button>
-        <Button Grid.Column="1" Grid.Row="6" Width="200" Style="{StaticResource operators}" FontSize="25" FontWeight="Bold" Click="Crea_Click">Crea</Button>
+        <Button Grid.Column="1" Grid.Row="6" Width="200" Style="{StaticResource operators}" FontSize="25" FontWeight="Bold" Click="Modifica_Click">Modifica</Button>
 
     </Grid>
-</Window>
+</Page>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFDemo.viewModels;
 
 namespace WPFDemo
 {
@@ -20,9 +21,31 @@ namespace WPFDemo
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainWindowViewModel vm;
+
+
+
         public MainWindow()
         {
             InitializeComponent();
+            vm = new MainWindowViewModel();
+            DataContext = vm;
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            vm.Logout();
+            NavigationService.NavigationService.Navigate(new Login());
+        }
+
+        private void RandomStudent_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.NavigationService.Navigate(new randomStudent());
+        }
+
+        private void Calculator_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.NavigationService.Navigate(new Calculator());
         }
     }
 }

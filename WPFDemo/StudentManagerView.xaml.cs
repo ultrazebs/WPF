@@ -19,7 +19,7 @@ namespace WPFDemo
     /// <summary>
     /// Logica di interazione per StudentManagerView.xaml
     /// </summary>
-    public partial class StudentManagerView : Window
+    public partial class StudentManagerView : Page
     {
         StudentManagerViewModel vm;
 
@@ -37,15 +37,7 @@ namespace WPFDemo
             vm = new StudentManagerViewModel(title);
             DataContext = vm;
 
-        }
-
-        public StudentManagerView(Student s)
-        {
-            InitializeComponent();
-            vm = new StudentManagerViewModel(s);
-            DataContext = vm;
-
-        }        
+        }      
         
         public StudentManagerView(Student s, string title)
         {
@@ -58,14 +50,20 @@ namespace WPFDemo
         private void Annulla_Click(object sender, RoutedEventArgs e)
         {
             //vm.Annulla();
-            Close();
+            
         }
 
         private void Crea_Click(object sender, RoutedEventArgs e)
         {
             vm.Confirm();
-            Close();
+            
 
+        }
+
+        private void Modifica_Click(object sender, RoutedEventArgs e)
+        {
+            vm.update();
+            
         }
     }
 }
